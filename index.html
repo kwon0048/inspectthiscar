@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Landing Page</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/css/coreui.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/js/coreui.bundle.min.js"></script>
+        <script src="./assets/js/script.js"></script>
+    <style>
+
+    </style>
+</head>
+<body class="min-vh-100 d-flex flex-column">
+<header class="header shadow-sm bg-primary ">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+      <div class="header-brand">
+        <a href="index.html"><img src="./assets/images/logo.png" alt="Logo"></a>
+      </div>
+      <nav class="d-none d-md-block text-white">
+        <ul class="nav justify-content-center align-items-center light-text">
+          <li class="nav-item"><a class="nav-link" href="./request_inspection.html">Request Inspection</a></li>
+          <li class="nav-item"><a class="nav-link" href="./blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="./support.html">Support</a></li>
+          <li class="nav-item"><a class="nav-link" href="./booking.html">Bookings</a></li>
+          <li id="loginLink" class="nav-item" style="display: none;">
+            <a href="./login.html" class="nav-link">
+              Sign In
+            </a>
+          </li>
+          <li class="nav-item dropdown" id="userIcon" style="display: none;">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-coreui-toggle="dropdown" aria-expanded="false">
+              <!-- <i class="fas fa-user-circle fs-1 mb-1"></i> -->
+              <img src="https://i.pravatar.cc/150?img=28" alt="Profile Picture" class="rounded-circle" width="42" height="42">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="./account.html">Account</a></li>
+              <li><a class="dropdown-item" href="#" onclick="logout()">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <button class="btn btn-light d-md-none" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#mobileMenu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+  
+      <div class="offcanvas offcanvas-end d-md-none bg-primary" id="mobileMenu">
+          <div class="offcanvas-header">
+              <img src="./assets/images/logo.png" alt="Logo">
+              <button type="button" class="btn-close" data-coreui-dismiss="offcanvas"></button>
+          </div>
+          <div class="offcanvas-body">
+              <ul class="nav flex-column">
+                  <li class="nav-item"><a class="nav-link" href="./request_inspection.html">Request Inspection</a></li>
+                  <li class="nav-item"><a class="nav-link" href="./blog.html">Blog</a></li>
+                  <li class="nav-item"><a class="nav-link" href="./support.html">Support</a></li>
+                  <li class="nav-item"><a class="nav-link" href="./booking.html">Bookings</a></li>
+                  <li id="accountOption" class="nav-item"><a class="nav-link" href="./account.html">Account</a></li>
+                  <li  class="nav-item mt-3">
+                      <a id="loginOption" href="./login.html" class="btn btn-light w-100">Login In</a>
+                      <a id="logoutOption" href="#" class="btn btn-light w-100" onclick="logout()">Logout</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+
+    <section class="bg-light py-5 bg-hero ">
+        <div class="container ">
+            <div class="text-center text-white ">
+                <h1 class="display-4 fw-bold mb-4">Your Trusted Vehicle Inspection Service</h1>
+                <p class="lead mb-4">
+                    Empowering Informed Vehicle Purchases
+                </p>
+                <div class="d-flex justify-content-center gap-3">
+                    <button class="btn btn-primary btn-lg">Request Service</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Our Story</h2>
+            
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0 home-img">
+                    <img src="./assets/images//home1.png" alt="Our Story Image 1" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-md-6 home-img">
+                    <p class="lead">
+                        At Inspect This Car, we believe that buying a used car should be a simple, stress-free experience.
+                        That's why we've built a network of exclusively selected Motor Vehicle Inspection Stations,
+                        each held to the highest standards of quality and service.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-md-6 order-md-2 mb-4 mb-md-0 home-img">
+                    <img src="./assets/images/home2.png" alt="Our Story Image 2" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-md-6 order-md-1 home-img">
+                    <p class="lead">
+                        Our trusted affiliates are committed to providing you with thorough, reliable inspections
+                        that give you the confidence to make informed purchasing decisions. Whether you're a first-time
+                        buyer or an experienced car owner, we're here to ensure that your next vehicle is safe, secure,
+                        and ready for the road ahead.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-custom-blue text-white py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">How It Works</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center">
+                        <i class="fas fa-search fs-1 mb-3"></i>
+                        <h3 class="h5 mb-3">Find Your Car</h3>
+                        <p class="text-white">
+                            Locate the vehicle you're interested in buying and get ready for a professional inspection.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center">
+                        <i class="fas fa-calendar-alt fs-1 mb-3"></i>
+                        <h3 class="h5 mb-3">Book Inspection</h3>
+                        <p class="text-white">
+                            Schedule an inspection at your preferred time with our network of certified inspectors.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center">
+                        <i class="fas fa-clipboard-check fs-1 mb-3"></i>
+                        <h3 class="h5 mb-3">Get Inspected</h3>
+                        <p class="text-white">
+                            Our professional inspector will conduct a thorough examination of the vehicle.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center">
+                        <i class="fas fa-file-alt fs-1 mb-3"></i>
+                        <h3 class="h5 mb-3">Receive Report</h3>
+                        <p class="text-white">
+                            Get a detailed report with our findings and make an informed decision about your purchase.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">What Our Clients Say</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="Client 1" class="testimonial-avatar mb-3">
+                        <p class="mb-3">
+                            "The inspection service was thorough and professional. It gave me the confidence 
+                            to make my purchase decision. Highly recommended!"
+                        </p>
+                        <h5 class="mb-1">Sarah Johnson</h5>
+                        <p class="text-muted">Car Buyer</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <img src="https://i.pravatar.cc/150?img=7" alt="Client 2" class="testimonial-avatar mb-3">
+                        <p class="mb-3">
+                            "Quick, efficient, and very detailed report. The inspector caught issues 
+                            I would have missed. Saved me from a bad investment!"
+                        </p>
+                        <h5 class="mb-1">Mike Thompson</h5>
+                        <p class="text-muted">First-time Buyer</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <img src="https://i.pravatar.cc/150?img=9" alt="Client 3" class="testimonial-avatar mb-3">
+                        <p class="mb-3">
+                            "The booking process was seamless, and the inspector was very knowledgeable. 
+                            Great service overall!"
+                        </p>
+                        <h5 class="mb-1">Emily Davis</h5>
+                        <p class="text-muted">Car Enthusiast</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-primary mt-auto py-5 text-white">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="mb-3">About Us</h5>
+                    <p >Our selected Motor Vehicle Inspection Stations make your used car purchase easy. Our affiliates uphold the highest standards of quality and service, ensuring your safety, happiness, and security on the road ahead.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled light-text">
+                        <li><a href="#" class="text-decoration-none text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-decoration-none text-white">Terms of use
+                        </a></li>
+                        <li><a href="#" class="text-decoration-none text-white">Booking & Purchase term</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Contact</h5>
+                    <ul class="list-unstyled ">
+                        <li><i class="fa-solid fa-envelope"></i> bookings@inspectthiscar.com</li>
+                        <li><i class="fa-solid fa-phone"></i> 613-902-8115</li>
+                        <li><i class="fa-solid fa-map-marker-alt"></i> 7 Bayview Station Rd, Box #78 Ottawa, ON K1Y 2C5 Box</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center ">
+                <p class="mb-0">&copy; 2024 Inspectthiscar. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

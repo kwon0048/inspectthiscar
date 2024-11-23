@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Landing Page</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/css/coreui.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/js/coreui.bundle.min.js"></script>
+        <script src="./assets/js/script.js"></script>
+    <style>
+
+    </style>
+</head>
+<body class="min-vh-100 d-flex flex-column">
+<header class="header shadow-sm bg-primary ">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+      <div class="header-brand">
+        <a href="index.html"><img src="./assets/images/logo.png" alt="Logo"></a>
+      </div>
+      <nav class="d-none d-md-block text-white">
+        <ul class="nav justify-content-center align-items-center light-text">
+          <li class="nav-item"><a class="nav-link" href="./request_inspection.html">Request Inspection</a></li>
+          <li class="nav-item"><a class="nav-link" href="./blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="./support.html">Support</a></li>
+          <li class="nav-item"><a class="nav-link" href="./booking.html">Bookings</a></li>
+          <li id="loginLink" class="nav-item" style="display: none;">
+            <a href="./login.html" class="nav-link">
+              Sign In
+            </a>
+          </li>
+          <li class="nav-item dropdown" id="userIcon" style="display: none;">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-coreui-toggle="dropdown" aria-expanded="false">
+              <!-- <i class="fas fa-user-circle fs-1 mb-1"></i> -->
+              <img src="https://i.pravatar.cc/150?img=28" alt="Profile Picture" class="rounded-circle" width="42" height="42">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="./account.html">Account</a></li>
+              <li><a class="dropdown-item" href="#" onclick="logout()">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <button class="btn btn-light d-md-none" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#mobileMenu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+  
+      <div class="offcanvas offcanvas-end d-md-none bg-primary" id="mobileMenu">
+          <div class="offcanvas-header">
+              <img src="./assets/images/logo.png" alt="Logo">
+              <button type="button" class="btn-close" data-coreui-dismiss="offcanvas"></button>
+          </div>
+          <div class="offcanvas-body">
+              <ul class="nav flex-column">
+                  <li class="nav-item"><a class="nav-link" href="./request_inspection.html">Request Inspection</a></li>
+                  <li class="nav-item"><a class="nav-link" href="./blog.html">Blog</a></li>
+                  <li class="nav-item"><a class="nav-link" href="./support.html">Support</a></li>
+                  <li class="nav-item"><a class="nav-link" href="./booking.html">Bookings</a></li>
+                  <li id="accountOption" class="nav-item"><a class="nav-link" href="./account.html">Account</a></li>
+                  <li  class="nav-item mt-3">
+                      <a id="loginOption" href="./login.html" class="btn btn-light w-100">Login In</a>
+                      <a id="logoutOption" href="#" class="btn btn-light w-100" onclick="logout()">Logout</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+
+    <section class="bg-light py-5 bg-hero ">
+        <div class="container ">
+            <div class="text-center text-white ">
+                <h1 class="display-4 fw-bold mb-4">Stay Informed with Car Insights</h1>
+                <p class="lead mb-4">
+                    Get expert advice, tips, and the latest updates to make smart decisions on your next car purchase
+                </p>
+                <div class="d-flex justify-content-center gap-3">
+                    <button class="btn btn-primary btn-lg">Explore</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="text-center px-lg-5">
+                        <img src="./assets/images/post1-1.png" alt="Client 1" class="mb-3">
+                        <h5 class="mb-1">Top 10 Maintenance Tips for Your Car</h5>
+                        <p class="text-muted mb-1">October 29, 2024</p>
+                        <p>8 min read4</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center px-lg-5">
+                        <img src="./assets/images/post1-2.png" alt="Client 2" class=" mb-3">
+                        <h5 class="mb-1">How to Avoid Common Car Buying Mistakes</h5>
+                        <p class="text-muted mb-1">October 20, 2024</p>
+                        <p>5 min read</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center px-lg-5">
+                        <img src="./assets/images/post1-3.png" alt="Client 3" class=" mb-3">
+                        <h5 class="mb-1">Understanding Vehicle Inspection Reports</h5>
+                        <p class="text-muted mb-1">October 23, 2024</p>
+                        <p>7 min read</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-custom-blue text-white py-5">
+        <div class="container">
+            <h2 class="text-center mb-1">Latest Posts</h2>
+            <p class="text-center mb-5">Discover the latest insights, trends, and expert advice on vehicle inspection, maintenance, and more.</p>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-9">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-center d-flex justify-content-center align-items-center" style="background-image: url('./assets/images/lp-1.png'); background-size: cover; background-position: center; height: 280px;border-radius: 8px;" >
+                                <div>
+                                    <h3 class="h5 mb-3">Benefits of Pre-Purchase Car Inspections</h3> 
+                                    <p class="text-white">
+                                        Buying a used car? Learn how a pre-purchase inspection can save you time and money.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="text-center mt-3" style="background-image: url('./assets/images/lp-2.png'); background-size: cover; background-position: center; height: 240px;border-radius: 8px;">
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mt-lg-5 text-center d-flex justify-content-center align-items-center" style="height: 180px;">
+                                <div>
+                                    <h3 class="h5 mb-3">Signs Your Car Needs a Check-Up</h3>
+                                    <p class="text-white">
+                                        Ignoring warning signs can lead tc costly repairs. Here what to watch for.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 text-black p-lg-4" style="background-color: #ffffff; border-radius: 8px; " >
+                    <div class="">
+                        <h3 class="h3 mb-3">Trending Posts</h3>
+                        <div class="row">
+
+                            <div class="col-md-6">
+                              <img src="./assets/images/lp-3.png" alt="Signs Your Car Needs a
+                              Check-Up" class="img-fluid">
+                            </div>
+                            <div class="col-md-6">
+                              <h5>Signs Your Car Needs a Check-Up</h5>
+                              <p>Read more....</p>
+                            </div>
+                          </div>
+                          
+                          <div class="row">
+
+                            <div class="col-md-6">
+                                <img src="./assets/images/lp-4.png" alt="Top 5 Reasons to Get a Used Car Inspected" class="img-fluid">
+                              </div>
+                              <div class="col-md-6">
+                                <h5>Top 5 Reasons to Get a Used Car Inspected</h5>
+                                <p>Read more....</p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div class="row">
+
+                            <div class="col-md-6">
+                                <img src="./assets/images/lp-5.png" alt="How Often Should You Service Your Car?" class="img-fluid">
+                              </div>
+                              <div class="col-md-6">
+                                <h5>How Often Should You Service Your Car?</h5>
+                                <p>Read more....</p>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 p-4">
+              <div class="m-lg-3 text-center d-flex justify-content-center align-items-center" style="height: 280px;background-color: #9bc9e4;border-radius: 12px;">
+                <div class="m-lg-5">
+                  <h2 class="mb-3">Subscribe to our newsletter</h2>
+                  <p>
+                    Join our community for updates on car care, buying tips, and more. Be the first to know about our latest insights and recommendations.
+                  </p>
+                  <div class="d-flex">
+                    <input type="text" class="form-control" placeholder="Enter your email">
+                    <button class="btn btn-primary ms-2">Subscribe</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <footer class="footer bg-primary mt-auto py-5 text-white">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="mb-3">About Us</h5>
+                    <p >Our selected Motor Vehicle Inspection Stations make your used car purchase easy. Our affiliates uphold the highest standards of quality and service, ensuring your safety, happiness, and security on the road ahead.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled light-text">
+                        <li><a href="#" class="text-decoration-none text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-decoration-none text-white">Terms of use
+                        </a></li>
+                        <li><a href="#" class="text-decoration-none text-white">Booking & Purchase term</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Contact</h5>
+                    <ul class="list-unstyled ">
+                        <li><i class="fa-solid fa-envelope"></i> bookings@inspectthiscar.com</li>
+                        <li><i class="fa-solid fa-phone"></i> 613-902-8115</li>
+                        <li><i class="fa-solid fa-map-marker-alt"></i> 7 Bayview Station Rd, Box #78 Ottawa, ON K1Y 2C5 Box</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center ">
+                <p class="mb-0">&copy; 2024 Inspectthiscar. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

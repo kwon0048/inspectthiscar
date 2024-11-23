@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Landing Page</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/css/coreui.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/js/coreui.bundle.min.js"></script>
+        <script src="./assets/js/script.js"></script>
+    <style>
+
+    </style>
+</head>
+<body class="min-vh-100 d-flex flex-column">
+<header class="header shadow-sm bg-primary ">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+      <div class="header-brand">
+        <a href="index.html"><img src="./assets/images/logo.png" alt="Logo"></a>
+      </div>
+      <nav class="d-none d-md-block text-white">
+        <ul class="nav justify-content-center align-items-center light-text">
+          <li class="nav-item"><a class="nav-link" href="./request_inspection.html">Request Inspection</a></li>
+          <li class="nav-item"><a class="nav-link" href="./blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="./support.html">Support</a></li>
+          <li class="nav-item"><a class="nav-link" href="./booking.html">Bookings</a></li>
+          <li id="loginLink" class="nav-item" style="display: none;">
+            <a href="./login.html" class="nav-link">
+              Sign In
+            </a>
+          </li>
+          <li class="nav-item dropdown" id="userIcon" style="display: none;">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-coreui-toggle="dropdown" aria-expanded="false">
+              <!-- <i class="fas fa-user-circle fs-1 mb-1"></i> -->
+              <img src="https://i.pravatar.cc/150?img=28" alt="Profile Picture" class="rounded-circle" width="42" height="42">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="./account.html">Account</a></li>
+              <li><a class="dropdown-item" href="#" onclick="logout()">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <button class="btn btn-light d-md-none" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#mobileMenu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+        <div class="offcanvas offcanvas-end d-md-none bg-primary" id="mobileMenu">
+          <div class="offcanvas-header">
+              <img src="./assets/images/logo.png" alt="Logo">
+              <button type="button" class="btn-close" data-coreui-dismiss="offcanvas"></button>
+          </div>
+          <div class="offcanvas-body">
+              <ul class="nav flex-column">
+                  <li class="nav-item"><a class="nav-link" href="./request_inspection.html">Request Inspection</a></li>
+                  <li class="nav-item"><a class="nav-link" href="./blog.html">Blog</a></li>
+                  <li class="nav-item"><a class="nav-link" href="./support.html">Support</a></li>
+                  <li class="nav-item"><a class="nav-link" href="./booking.html">Bookings</a></li>
+                  <li id="accountOption" class="nav-item"><a class="nav-link" href="./account.html">Account</a></li>
+                  <li  class="nav-item mt-3">
+                      <a id="loginOption" href="./login.html" class="btn btn-light w-100">Login In</a>
+                      <a id="logoutOption" href="#" class="btn btn-light w-100" onclick="logout()">Logout</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+
+
+    <main class="flex-grow-1 py-5">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        
+
+                        <div class="card-body">
+                            <img src="https://i.pravatar.cc/150?img=28" alt="Profile Picture" class="img-fluid rounded-circle mx-auto d-block mb-3">
+                            <h5 class="card-title text-center">Emily Doe</h5>
+                            <p class="card-text text-center">emily.doe@gmail.com</p>
+                            <div class="d-grid gap-2">
+                              <button class="btn btn-primary">Account Information</button>
+                              <button class="btn btn-primary">Previous Inspection</button>
+                              <button class="btn btn-primary">Billing & Payments</button>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+
+<div class="col-md-8">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white text-center">
+        <h5 class="card-title mb-0">Account Information</h5>
+      </div>
+      <div class="card-body p-4">
+        <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fas fa-user"></i>
+                </span>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fas fa-user"></i>
+                </span>
+                <input type="text" class="form-control" id="username" placeholder="Enter your username">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="phoneNumber" class="form-label">Phone Number</label>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fas fa-phone"></i>
+                </span>
+                <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter your phone number">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="profileImage" class="form-label">Profile Image</label>
+              <input type="file" class="form-control" id="profileImage">
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer bg-primary mt-auto py-5 text-white">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="mb-3">About Us</h5>
+                    <p >Our selected Motor Vehicle Inspection Stations make your used car purchase easy. Our affiliates uphold the highest standards of quality and service, ensuring your safety, happiness, and security on the road ahead.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled light-text">
+                        <li><a href="#" class="text-decoration-none text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-decoration-none text-white">Terms of use
+                        </a></li>
+                        <li><a href="#" class="text-decoration-none text-white">Booking & Purchase term</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Contact</h5>
+                    <ul class="list-unstyled ">
+                        <li><i class="fa-solid fa-envelope"></i> bookings@inspectthiscar.com</li>
+                        <li><i class="fa-solid fa-phone"></i> 613-902-8115</li>
+                        <li><i class="fa-solid fa-map-marker-alt"></i> 7 Bayview Station Rd, Box #78 Ottawa, ON K1Y 2C5 Box</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center ">
+                <p class="mb-0">&copy; 2024 Inspectthiscar. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
