@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inspect This Car</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/css/coreui.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/js/coreui.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </head>
+  <body class="min-vh-100 d-flex flex-column">
+    <header class="header shadow-sm bg-primary">
+      <div
+        class="container d-flex justify-content-between align-items-center py-3"
+      >
+        <div class="header-brand">
+          <a href="index.html"
+            ><img src="./assets/images/logo.png" alt="Logo"
+          /></a>
+        </div>
+        <nav class="d-none d-md-block text-white">
+          <ul class="nav justify-content-center align-items-center light-text">
+            <li class="nav-item">
+              <a class="nav-link" href="./request_inspection.html"
+                >Request Inspection</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./support.html">Support</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./booking.html">Bookings</a>
+            </li>
+            <li id="loginLink" class="nav-item" style="display: none">
+              <a href="./login.html" class="nav-link"> Sign In </a>
+            </li>
+            <li class="nav-item dropdown" id="userIcon" style="display: none">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-coreui-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <!-- <i class="fas fa-user-circle fs-1 mb-1"></i> -->
+                <img
+                  src="https://i.pravatar.cc/150?img=28"
+                  alt="Profile Picture"
+                  class="rounded-circle"
+                  width="42"
+                  height="42"
+                />
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="./account.html">Account</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" onclick="logout()"
+                    >Logout</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <button
+          class="btn btn-light d-md-none"
+          type="button"
+          data-coreui-toggle="offcanvas"
+          data-coreui-target="#mobileMenu"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="offcanvas offcanvas-end d-md-none bg-primary" id="mobileMenu">
+      <div class="offcanvas-header">
+        <img src="./assets/images/logo.png" alt="Logo" />
+        <button
+          type="button"
+          class="btn-close"
+          data-coreui-dismiss="offcanvas"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="./request_inspection.html"
+              >Request Inspection</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./support.html">Support</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./booking.html">Bookings</a>
+          </li>
+          <li id="accountOption" class="nav-item">
+            <a class="nav-link" href="./account.html">Account</a>
+          </li>
+          <li class="nav-item mt-3">
+            <a id="loginOption" href="./login.html" class="btn btn-light w-100"
+              >Login In</a
+            >
+            <a
+              id="logoutOption"
+              href="#"
+              class="btn btn-light w-100"
+              onclick="logout()"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="map"></div>
+
+    <div class="cta-popup">
+      <h2 class="fs-6">Select Your Desired Search Radius</h2>
+      <div class="range-slider">
+        <p><span id="distance">50</span> km</p>
+        <input
+          type="range"
+          min="0"
+          max="5"
+          value="2"
+          class="slider"
+          id="myRange"
+        />
+      </div>
+      <a class="cta" href="./request.html">Search</a>
+    </div>
+
+    <script>
+      function setMapHeight() {
+        var headerHeight = document.querySelector(".header").offsetHeight;
+        var map = document.getElementById("map");
+        map.style.height = `calc(100vh - ${headerHeight}px)`;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        setMapHeight();
+        window.addEventListener("resize", setMapHeight);
+
+        // Initialize the map with disabled interactions
+        var map = L.map("map", {
+          center: [45.4215, -75.6972], // Centered on Ottawa
+          zoom: 13,
+          dragging: false,
+          scrollWheelZoom: false,
+          doubleClickZoom: false,
+          boxZoom: false,
+          keyboard: false,
+          zoomControl: false,
+          touchZoom: false,
+        });
+
+        // Add the OpenStreetMap tiles
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }).addTo(map);
+
+        // Add a marker for the business location
+        var businessLocation = [45.4215, -75.6972]; // Coordinates for 7 Bayview Station Rd, Ottawa
+        L.marker(businessLocation)
+          .addTo(map)
+          .bindPopup(
+            "Inspect This Car<br>7 Bayview Station Rd, Box #78 Ottawa, ON K1Y 2C5"
+          );
+
+        // Update distance text as the slider changes
+        var slider = document.getElementById("myRange");
+        var distanceText = document.getElementById("distance");
+        slider.addEventListener("input", function () {
+          distanceText.textContent = slider.value * 10; // Assuming each step is 10 km
+        });
+      });
+    </script>
+  </body>
+</html>

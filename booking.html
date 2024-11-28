@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inspect This Car</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/css/coreui.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/js/coreui.bundle.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+  <style>
+    body {
+      background: linear-gradient(180deg,
+          rgba(139, 176, 255, 0.64) 0%,
+          rgba(215, 228, 255, 0.35) 50%,
+          #c5f3ef 100%);
+    }
+  </style>
+</head>
+
+<body class="min-vh-100 d-flex flex-column">
+  <header class="header shadow-sm bg-primary">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+      <div class="header-brand">
+        <a href="index.html"><img src="./assets/images/logo.png" alt="Logo" /></a>
+      </div>
+      <nav class="d-none d-md-block text-white">
+        <ul class="nav justify-content-center align-items-center light-text">
+          <li class="nav-item">
+            <a class="nav-link" href="./request_inspection.html">Request Inspection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./support.html">Support</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./booking.html">Bookings</a>
+          </li>
+          <li id="loginLink" class="nav-item" style="display: none">
+            <a href="./login.html" class="nav-link"> Sign In </a>
+          </li>
+          <li class="nav-item dropdown" id="userIcon" style="display: none">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-coreui-toggle="dropdown"
+              aria-expanded="false">
+              <!-- <i class="fas fa-user-circle fs-1 mb-1"></i> -->
+              <img src="https://i.pravatar.cc/150?img=28" alt="Profile Picture" class="rounded-circle" width="42"
+                height="42" />
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="./account.html">Account</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <button class="btn btn-light d-md-none" type="button" data-coreui-toggle="offcanvas"
+        data-coreui-target="#mobileMenu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <div class="offcanvas offcanvas-end d-md-none bg-primary" id="mobileMenu">
+    <div class="offcanvas-header">
+      <img src="./assets/images/logo.png" alt="Logo" />
+      <button type="button" class="btn-close" data-coreui-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="./request_inspection.html">Request Inspection</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./blog.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./support.html">Support</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./booking.html">Bookings</a>
+        </li>
+        <li id="accountOption" class="nav-item">
+          <a class="nav-link" href="./account.html">Account</a>
+        </li>
+        <li class="nav-item mt-3">
+          <a id="loginOption" href="./login.html" class="btn btn-light w-100">Login In</a>
+          <a id="logoutOption" href="#" class="btn btn-light w-100" onclick="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="container">
+    <div class="row mt-5 mb-5">
+      <div
+        class="col-12 col-md-3 rounded py-5 px-4 d-flex flex-column align-items-center justify-content-center user-card mb-4 mb-md-0">
+        <img class="img-fluid" src="./assets/svgs/user.svg" alt="" />
+        <h3>User Name</h3>
+        <span>123456@mail.com</span>
+        <a href="./appointments.html">
+          <button class="btn btn-primary mt-3">Upcoming Appointments</button>
+        </a>
+        <a href="#">
+          <button class="btn btn-primary mt-3">Incoming Bookings</button>
+        </a>
+      </div>
+      <div class="col-12 col-md-8 rounded offset-md-1 bg-primary py-4 px-3 text-white available-bookings">
+        <h2>Available Bookings</h2>
+        <div class="row px-3">
+          <div class="card mb-4">
+            <div class="row py-3">
+              <div class="col-12 col-md-3 mb-3 mb-md-0">
+                <img class="img-fluid" src="./assets/images/wheel-deal.png" alt="" />
+              </div>
+              <div class="col-12 col-md">
+                <h4>The Wheel Deal</h4>
+                <address>
+                  87MJ+2M Nepean, Ottawa, ON, Canada Ottawa Ontario Canada
+                </address>
+                <p>3.4 Km</p>
+                <p>Appointment Date: 01/01/25 14:00</p>
+                <p>
+                  When you choose our family-owned business, you can trust
+                  that your vehicle is in capable hands. We take pride in our
+                  workmanship and strive to exceed your expectations.
+                  Experience our personalized service and discover why we are
+                  the go-to automotive repair choice in Ottawa. Come visit us
+                  and let us take care of your vehicle's needs with the utmost
+                  care and expertise.
+                </p>
+                <a href="./booking_complete.html">
+                  <button class="btn btn-primary">Accept Appointment</button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="row py-3">
+              <div class="col-12 col-md-3 mb-3 mb-md-0">
+                <img class="img-fluid" src="./assets/images/inspection-ottawa.png" alt="" />
+              </div>
+              <div class="col-12 col-md">
+                <h4>Inspection Ottawa</h4>
+                <address>
+                  87MJ+2M Nepean, Ottawa, ON, Canada Ottawa Ontario Canada
+                </address>
+                <p>3.4 Km</p>
+                <p>Appointment Date: 01/01/25 14:00</p>
+                <p>
+                  When you choose our family-owned business, you can trust
+                  that your vehicle is in capable hands. We take pride in our
+                  workmanship and strive to exceed your expectations.
+                  Experience our personalized service and discover why we are
+                  the go-to automotive repair choice in Ottawa. Come visit us
+                  and let us take care of your vehicle's needs with the utmost
+                  care and expertise.
+                </p>
+                <a href="./booking_complete.html">
+                  <button class="btn btn-primary">Accept Appointment</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

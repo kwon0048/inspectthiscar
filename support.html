@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inspect This Car</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/css/coreui.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/js/coreui.bundle.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+  <style>
+
+  </style>
+</head>
+
+<body class="min-vh-100 d-flex flex-column">
+  <header class="header shadow-sm bg-primary">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+      <div class="header-brand">
+        <a href="index.html"><img src="./assets/images/logo.png" alt="Logo" /></a>
+      </div>
+      <nav class="d-none d-md-block text-white">
+        <ul class="nav justify-content-center align-items-center light-text">
+          <li class="nav-item">
+            <a class="nav-link" href="./request_inspection.html">Request Inspection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./support.html">Support</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./booking.html">Bookings</a>
+          </li>
+          <li id="loginLink" class="nav-item" style="display: none">
+            <a href="./login.html" class="nav-link"> Sign In </a>
+          </li>
+          <li class="nav-item dropdown" id="userIcon" style="display: none">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-coreui-toggle="dropdown"
+              aria-expanded="false">
+              <!-- <i class="fas fa-user-circle fs-1 mb-1"></i> -->
+              <img src="https://i.pravatar.cc/150?img=28" alt="Profile Picture" class="rounded-circle" width="42"
+                height="42" />
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="./account.html">Account</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <button class="btn btn-light d-md-none" type="button" data-coreui-toggle="offcanvas"
+        data-coreui-target="#mobileMenu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <div class="offcanvas offcanvas-end d-md-none bg-primary" id="mobileMenu">
+    <div class="offcanvas-header">
+      <img src="./assets/images/logo.png" alt="Logo" />
+      <button type="button" class="btn-close" data-coreui-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="./request_inspection.html">Request Inspection</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./blog.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./support.html">Support</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./booking.html">Bookings</a>
+        </li>
+        <li id="accountOption" class="nav-item">
+          <a class="nav-link" href="./account.html">Account</a>
+        </li>
+        <li class="nav-item mt-3">
+          <a id="loginOption" href="./login.html" class="btn btn-light w-100">Login In</a>
+          <a id="logoutOption" href="#" class="btn btn-light w-100" onclick="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="support-search container py-5">
+    <div class="row d-flex flex-column align-items-center">
+      <h2 class="text-center">Support</h2>
+      <p class="text-center">Hi, How we can help?</p>
+      <form action="" class="mt-2 d-flex justify-content-center">
+        <input class="search-faq" type="text" />
+      </form>
+    </div>
+    <div class="row"></div>
+  </section>
+
+  <section class="get-help">
+    <h3 class="text-white text-center">Get Help</h3>
+    <div class="row rounded px-4">
+      <div class="support-card col-12 col-sm-6 col-lg-3">
+        <a href="#getting-started"
+          class="rounded d-flex flex-column text-center align-items-center justify-content-center h-100 text-decoration-none">
+          <img src="./assets/svgs/getting-started.svg" alt="Getting Started" class="img-fluid" />
+          <h3 class="text-black mt-3 fs-4">Getting Started</h3>
+          <p class="text-secondary">
+            Body text for whatever you’d like to say. Add main takeaway
+            points, quotes, anecdotes, or even a very very short story.
+          </p>
+        </a>
+      </div>
+      <div class="support-card col-12 col-sm-6 col-lg-3">
+        <a href="#faqs"
+          class="rounded d-flex flex-column text-center align-items-center justify-content-center h-100 text-decoration-none">
+          <img src="./assets/svgs/faq.svg" alt="FAQs" class="img-fluid" />
+          <h3 class="text-black mt-3 fs-4">FAQs</h3>
+          <p class="text-secondary">
+            Body text for whatever you’d like to say. Add main takeaway
+            points, quotes, anecdotes, or even a very very short story.
+          </p>
+        </a>
+      </div>
+      <div class="support-card col-12 col-sm-6 col-lg-3">
+        <a href="#contact-us"
+          class="rounded d-flex flex-column text-center align-items-center justify-content-center h-100 text-decoration-none">
+          <img src="./assets/svgs/contact-us.svg" alt="Contact Us" class="img-fluid" />
+          <h3 class="text-black mt-3 fs-4">Contact Us</h3>
+          <p class="text-secondary">
+            Body text for whatever you’d like to say. Add main takeaway
+            points, quotes, anecdotes, or even a very very short story.
+          </p>
+        </a>
+      </div>
+      <div class="support-card col-12 col-sm-6 col-lg-3">
+        <a href="#announcements"
+          class="rounded d-flex flex-column text-center align-items-center justify-content-center h-100 text-decoration-none">
+          <img src="./assets/svgs/announcements.svg" alt="Announcements" class="img-fluid" />
+          <h3 class="text-black mt-3 fs-4">Announcements</h3>
+          <p class="text-secondary">
+            Body text for whatever you’d like to say. Add main takeaway
+            points, quotes, anecdotes, or even a very very short story.
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-3" id="getting-started">
+    <h2 class="text-center mt-5">Getting Started</h2>
+    <p class="text-center">Select Your Vehicle Service Option</p>
+    <div class="row">
+      <div class="service-card col-12 p-3 col-sm-6 col-lg-3">
+        <a href="./search.html"
+          class="inner bg-primary rounded d-flex flex-column text-center align-items-center justify-content-center h-100 text-decoration-none">
+          <img src="./assets/svgs/safety-inspection.svg" alt="Inspection" class="img-fluid" />
+          <h3 class="text-white mt-3 fs-4">Safety Inspection Standards</h3>
+        </a>
+      </div>
+      <div class="service-card col-12 p-3 col-sm-6 col-lg-3">
+        <a href="./search.html"
+          class="inner bg-primary rounded d-flex flex-column text-center align-items-center justify-content-center h-100 text-decoration-none">
+          <img src="./assets/svgs/preowned-inspection.svg" alt="Inspection" class="img-fluid" />
+          <h3 class="text-white mt-3 fs-4">Certified Pre Owned Inspection</h3>
+        </a>
+      </div>
+      <div class="service-card col-12 p-3 col-sm-6 col-lg-3">
+        <a href="./search.html"
+          class="inner bg-primary rounded d-flex flex-column text-center align-items-center justify-content-center h-100 text-decoration-none">
+          <img src="./assets/svgs/oil-service.svg" alt="Inspection" class="img-fluid" />
+          <h3 class="text-white mt-3 fs-4">Oil Change Tire Service</h3>
+        </a>
+      </div>
+      <div class="service-card col-12 p-3 col-sm-6 col-lg-3">
+        <a href="./search.html"
+          class="inner bg-primary rounded d-flex flex-column text-center align-items-center justify-content-center h-100 text-decoration-none">
+          <img src="./assets/svgs/scheduled-maintenance.svg" alt="Inspection" class="img-fluid" />
+          <h3 class="text-white mt-3 fs-4">Scheduled Maintenance</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section container" id="faqs">
+    <h2 class="text-center mt-5">FAQs</h2>
+    <p class="text-center">Frequently Asked Questions</p>
+    <!-- ADD A FREQUENTLY ASKED QUESTIONS SECTION WITH WORKING EXPANSIONS FROM COREUI -->
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-coreui-toggle="collapse" data-coreui-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            What does an MVIS stand for?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+          data-coreui-parent="#faqAccordion">
+          <div class="accordion-body">Answer</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-coreui-toggle="collapse"
+            data-coreui-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            How Much is a Safety Inspection for my vehicle?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+          data-coreui-parent="#faqAccordion">
+          <div class="accordion-body">Answer</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-coreui-toggle="collapse"
+            data-coreui-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Why is the Pre-Purchase Inspection more costly than the Safety
+            Inspection?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+          data-coreui-parent="#faqAccordion">
+          <div class="accordion-body">Answer</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-coreui-toggle="collapse"
+            data-coreui-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Do I have to wait at the Inspection Station while my vehicle is
+            being inspected?
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+          data-coreui-parent="#faqAccordion">
+          <div class="accordion-body">Answer</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFive">
+          <button class="accordion-button collapsed" type="button" data-coreui-toggle="collapse"
+            data-coreui-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            Why can't the inspection be done remotely?
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+          data-coreui-parent="#faqAccordion">
+          <div class="accordion-body">Answer</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSix">
+          <button class="accordion-button collapsed" type="button" data-coreui-toggle="collapse"
+            data-coreui-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            How do I receive my Safety Standards Certificate?
+          </button>
+        </h2>
+        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+          data-coreui-parent="#faqAccordion">
+          <div class="accordion-body">Answer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-us" class="container">
+    <h2 class="text-center mt-5">Contact Us</h2>
+    <p class="text-center">We’d love to hear from you</p>
+    <form class="contact-us-faq" action="">
+      <div class="group">
+        <input type="text" id="name" placeholder="Name" />
+        <input type="email" id="name" placeholder="Email" />
+      </div>
+      <input type="text" id="name" placeholder="Phone number" />
+      <textarea placeholder="Your Message"></textarea>
+
+      <button class="btn btn-primary">SUBMIT</button>
+    </form>
+  </section>
+
+  <section id="announcements" class="container-fluid">
+    <h2 class="text-center my-5">Announcements</h2>
+    <ul>
+      <li>New inspection services with the most advanced diagnostics.</li>
+      <li>
+        Holiday Hours: Informing our customers about changes in operating
+        hours during holidays.
+      </li>
+      <li>
+        Special Offers: Promotions or discounts on inspection services for a
+        limited time during Winter season.
+      </li>
+      <li>
+        Regulatory Updates: Updates on new regulations or compliance
+        requirements that affect vehicle inspections.
+      </li>
+    </ul>
+  </section>
+</body>
+
+</html>

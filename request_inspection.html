@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inspect This Car</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/css/coreui.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/js/coreui.bundle.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <style>
+      body {
+        background: linear-gradient(
+          180deg,
+          rgba(139, 176, 255, 0.64) 0%,
+          rgba(215, 228, 255, 0.35) 50%,
+          #c5f3ef 100%
+        );
+      }
+    </style>
+  </head>
+  <body class="min-vh-100 d-flex flex-column">
+    <header class="header shadow-sm bg-primary">
+      <div
+        class="container d-flex justify-content-between align-items-center py-3"
+      >
+        <div class="header-brand">
+          <a href="index.html"
+            ><img src="./assets/images/logo.png" alt="Logo"
+          /></a>
+        </div>
+        <nav class="d-none d-md-block text-white">
+          <ul class="nav justify-content-center align-items-center light-text">
+            <li class="nav-item">
+              <a class="nav-link" href="./request_inspection.html"
+                >Request Inspection</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./support.html">Support</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./booking.html">Bookings</a>
+            </li>
+            <li id="loginLink" class="nav-item" style="display: none">
+              <a href="./login.html" class="nav-link"> Sign In </a>
+            </li>
+            <li class="nav-item dropdown" id="userIcon" style="display: none">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-coreui-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <!-- <i class="fas fa-user-circle fs-1 mb-1"></i> -->
+                <img
+                  src="https://i.pravatar.cc/150?img=28"
+                  alt="Profile Picture"
+                  class="rounded-circle"
+                  width="42"
+                  height="42"
+                />
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="./account.html">Account</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" onclick="logout()"
+                    >Logout</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <button
+          class="btn btn-light d-md-none"
+          type="button"
+          data-coreui-toggle="offcanvas"
+          data-coreui-target="#mobileMenu"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="offcanvas offcanvas-end d-md-none bg-primary" id="mobileMenu">
+      <div class="offcanvas-header">
+        <img src="./assets/images/logo.png" alt="Logo" />
+        <button
+          type="button"
+          class="btn-close"
+          data-coreui-dismiss="offcanvas"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="./request_inspection.html"
+              >Request Inspection</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./support.html">Support</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./booking.html">Bookings</a>
+          </li>
+          <li id="accountOption" class="nav-item">
+            <a class="nav-link" href="./account.html">Account</a>
+          </li>
+          <li class="nav-item mt-3">
+            <a id="loginOption" href="./login.html" class="btn btn-light w-100"
+              >Login In</a
+            >
+            <a
+              id="logoutOption"
+              href="#"
+              class="btn btn-light w-100"
+              onclick="logout()"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="container py-3">
+      <h2 class="text-center my-5">Select Your Vehicle Service Option</h2>
+      <div class="row">
+        <div class="service-card col-12 p-3 col-sm-6 col-lg-3">
+          <a
+            href="./search.html"
+            class="inner bg-primary rounded d-flex flex-column text-center align-items-center justify-content-center h-100 text-decoration-none"
+          >
+            <img
+              src="./assets/svgs/safety-inspection.svg"
+              alt="Inspection"
+              class="img-fluid"
+            />
+            <h3 class="text-white mt-3 fs-4">Safety Inspection Standards</h3>
+          </a>
+        </div>
+        <div class="service-card col-12 p-3 col-sm-6 col-lg-3">
+          <a
+            href="./search.html"
+            class="inner bg-primary rounded d-flex flex-column text-center align-items-center justify-content-center h-100 text-decoration-none"
+          >
+            <img
+              src="./assets/svgs/preowned-inspection.svg"
+              alt="Inspection"
+              class="img-fluid"
+            />
+            <h3 class="text-white mt-3 fs-4">Certified Pre Owned Inspection</h3>
+          </a>
+        </div>
+        <div class="service-card col-12 p-3 col-sm-6 col-lg-3">
+          <a
+            href="./search.html"
+            class="inner bg-primary rounded d-flex flex-column text-center align-items-center justify-content-center h-100 text-decoration-none"
+          >
+            <img
+              src="./assets/svgs/oil-service.svg"
+              alt="Inspection"
+              class="img-fluid"
+            />
+            <h3 class="text-white mt-3 fs-4">Oil Change Tire Service</h3>
+          </a>
+        </div>
+        <div class="service-card col-12 p-3 col-sm-6 col-lg-3">
+          <a
+            href="./search.html"
+            class="inner bg-primary rounded d-flex flex-column text-center align-items-center justify-content-center h-100 text-decoration-none"
+          >
+            <img
+              src="./assets/svgs/scheduled-maintenance.svg"
+              alt="Inspection"
+              class="img-fluid"
+            />
+            <h3 class="text-white mt-3 fs-4">Scheduled Maintenance</h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer bg-primary mt-auto py-5 text-white">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <h5 class="mb-3">About Us</h5>
+            <p>
+              Our selected Motor Vehicle Inspection Stations make your used car
+              purchase easy. Our affiliates uphold the highest standards of
+              quality and service, ensuring your safety, happiness, and security
+              on the road ahead.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h5 class="mb-3">Quick Links</h5>
+            <ul class="list-unstyled light-text">
+              <li>
+                <a href="#" class="text-decoration-none text-white"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-white"
+                  >Terms of use
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-white"
+                  >Booking & Purchase term</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5 class="mb-3">Contact</h5>
+            <ul class="list-unstyled">
+              <li>
+                <i class="fa-solid fa-envelope"></i> bookings@inspectthiscar.com
+              </li>
+              <li><i class="fa-solid fa-phone"></i> 613-902-8115</li>
+              <li>
+                <i class="fa-solid fa-map-marker-alt"></i> 7 Bayview Station Rd,
+                Box #78 Ottawa, ON K1Y 2C5 Box
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="my-4" />
+        <div class="text-center">
+          <p class="mb-0">&copy; 2024 Inspectthiscar. All rights reserved</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
